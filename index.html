@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HappyLibs Word Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>HappyLibs Word Generator</h1>
+        <p class="description">Generate random words for your Mad Libs puzzles!</p>
+        
+        <div class="controls">
+            <label for="category-select">Select Word Type:</label>
+            <select id="category-select">
+                <option value="">-- Loading categories --</option>
+            </select>
+            <button id="generate-btn" type="button">Generate Words</button>
+        </div>
+        
+        <div id="error-message" class="error-message" style="display: none;"></div>
+        
+        <div id="results" class="results">
+            <h2>Generated Words:</h2>
+            <ul id="word-list">
+                <li class="placeholder">Click "Generate Words" to get started!</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
