@@ -55,6 +55,7 @@ print(f"Random noun: {random_noun}")
 ```
 HappyLibsWordGen/
 ├── src/
+│   ├── __init__.py          # Package initialization
 │   └── word_generator.py    # Main word generator logic
 ├── words.json               # Word categories and words database
 ├── requirements.txt         # Python dependencies

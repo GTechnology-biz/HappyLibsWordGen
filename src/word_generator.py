@@ -46,9 +46,22 @@ class WordGenerator:
         Raises:
             FileNotFoundError: If the words file does not exist.
             json.JSONDecodeError: If the words file is not valid JSON.
+            ValueError: If the JSON structure is invalid.
         """
         with open(self.words_file, "r", encoding="utf-8") as file:
-            return json.load(file)
+            data = json.load(file)
+
+        # Validate the JSON structure
+        if not isinstance(data, dict):
+            raise ValueError("Words file must contain a JSON object")
+
+        for key, value in data.items():
+            if not isinstance(key, str):
+                raise ValueError(f"Category keys must be strings, got {type(key)}")
+            if not isinstance(value, list):
+                raise ValueError(f"Category '{key}' must contain a list of words")
+
+        return data
 
     def get_categories(self):
         """
@@ -79,7 +92,11 @@ class WordGenerator:
                 f"Available categories: {self.get_categories()}"
             )
 
-        return random.choice(self.words[category])
+        words_list = self.words[category]
+        if not words_list:
+            raise ValueError(f"Category '{category}' is empty")
+
+        return random.choice(words_list)
 
     def get_words_in_category(self, category):
         """
