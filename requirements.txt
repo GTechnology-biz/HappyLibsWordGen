@@ -1,0 +1,7 @@
+# HappyLibsWordGen Python Dependencies
+#
+# Currently, this project uses only Python standard library modules.
+# Add any future dependencies below.
+#
+# Example:
+# requests>=2.28.0
