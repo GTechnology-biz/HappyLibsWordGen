@@ -21,11 +21,22 @@
         
         <div id="error-message" class="error-message" style="display: none;"></div>
         
-        <div id="results" class="results">
-            <h2>Generated Words:</h2>
-            <ul id="word-list">
-                <li class="placeholder">Click "Generate Words" to get started!</li>
-            </ul>
+        <div class="word-panels">
+            <div id="results" class="results">
+                <h2>Generated Words:</h2>
+                <p class="hint">Click a word to add it to your selected list</p>
+                <ul id="word-list">
+                    <li class="placeholder">Click "Generate Words" to get started!</li>
+                </ul>
+            </div>
+            
+            <div id="selected-words-panel" class="selected-words-panel">
+                <h2>Selected Words:</h2>
+                <p class="hint">Maximum 10 words (oldest removed first)</p>
+                <ol id="selected-word-list">
+                    <li class="placeholder">No words selected yet</li>
+                </ol>
+            </div>
         </div>
     </div>
     

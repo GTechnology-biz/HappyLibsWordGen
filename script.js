@@ -4,6 +4,8 @@
  */
 
 let wordsData = null;
+const selectedWords = [];
+const MAX_SELECTED_WORDS = 10;
 
 /**
  * Fetches the words data from words.json
@@ -94,7 +96,47 @@ function displayWords(words) {
     words.forEach(word => {
         const li = document.createElement('li');
         li.textContent = word;
+        li.addEventListener('click', () => addToSelectedWords(word));
         wordList.appendChild(li);
+    });
+}
+
+/**
+ * Adds a word to the selected words list
+ * @param {string} word - The word to add
+ */
+function addToSelectedWords(word) {
+    // Add the word to the array
+    selectedWords.push(word);
+    
+    // Remove the oldest word if we exceed the maximum
+    if (selectedWords.length > MAX_SELECTED_WORDS) {
+        selectedWords.shift();
+    }
+    
+    // Update the display
+    displaySelectedWords();
+}
+
+/**
+ * Displays the selected words in the selected words panel
+ */
+function displaySelectedWords() {
+    const selectedList = document.getElementById('selected-word-list');
+    selectedList.innerHTML = '';
+    
+    if (selectedWords.length === 0) {
+        const li = document.createElement('li');
+        li.textContent = 'No words selected yet';
+        li.className = 'placeholder';
+        selectedList.appendChild(li);
+        return;
+    }
+    
+    selectedWords.forEach(word => {
+        const li = document.createElement('li');
+        li.textContent = word;
+        selectedList.appendChild(li);
     });
 }
 
