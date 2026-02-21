@@ -57,12 +57,49 @@ HappyLibsWordGen/
 ├── src/
 │   ├── __init__.py          # Package initialization
 │   └── word_generator.py    # Main word generator logic
+├── index.html               # Web interface
+├── script.js                # Frontend JavaScript logic
+├── style.css                # Frontend styling
 ├── words.json               # Word categories and words database
+├── 404.html                 # Custom 404 error page
+├── _headers                 # Cloudflare Pages HTTP headers
+├── _redirects               # Cloudflare Pages URL redirects
 ├── requirements.txt         # Python dependencies
-├── README.md               # This file
-├── LICENSE                 # MIT License
-└── .gitignore             # Git ignore rules
+├── README.md                # This file
+├── LICENSE                  # MIT License
+└── .gitignore               # Git ignore rules
 ```
+
+## Deployment (Cloudflare Pages)
+
+The web app is hosted on [Cloudflare Pages](https://pages.cloudflare.com/). To deploy your own instance:
+
+### Initial Setup
+
+1. Sign up for a free [Cloudflare account](https://dash.cloudflare.com/sign-up).
+2. Go to **Workers & Pages** in the Cloudflare dashboard.
+3. Click **Create** > **Pages** > **Connect to Git**.
+4. Select the **HappyLibsWordGen** repository from GitHub.
+5. Configure the build settings:
+   - **Build command:** *(leave blank — no build step needed)*
+   - **Build output directory:** `/` *(root)*
+6. Click **Save and Deploy**.
+
+Cloudflare Pages will automatically deploy on every push to the `main` branch and create preview deployments for pull requests.
+
+### Custom Domain (Optional)
+
+1. In your Pages project, go to **Custom domains**.
+2. Click **Set up a custom domain** and follow the prompts.
+3. Cloudflare handles SSL certificates automatically.
+
+### Configuration Files
+
+| File | Purpose |
+|------|---------|
+| `_headers` | HTTP security and caching headers served by Cloudflare Pages |
+| `_redirects` | URL redirect rules handled by Cloudflare Pages |
+| `404.html` | Custom 404 error page shown for unknown routes |
 
 ## How to Contribute
 

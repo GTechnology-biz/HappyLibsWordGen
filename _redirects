@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Redirect common paths to the main page
+/home      /  301
+/index     /  301
